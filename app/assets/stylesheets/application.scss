@@ -1,4 +1,24 @@
-@import "./reset";
+@import "reset";
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main-content__header {
+  background-color: #ccc;
+  height: 80px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+}
+
+.main-content__header__group-info {
+  float: left;
+}
 
 .message {
   margin: 10px 0;
