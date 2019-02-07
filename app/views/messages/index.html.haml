@@ -1,11 +1,18 @@
 .contents
   .sidebar
     .sidebar__header
+      .sidebar__header__content
+        .sidebar__header__content__user-name テスト太郎
+        %ul.sidebar__header__content__buttons
+          %li.sidebar__header_content__buttons__edit-user.fa-button
+            %i.fa.fa-edit
+          %li.sidebar__header_content__buttons__new-group.fa-button
+            %i.fa.fa-cog
     .sidebar__content
       .groups
         .group
-          %p.group__name
-          %p.group__last-message
+          %p.group__name グループ名
+          %p.group__last-message こんにちは
   .main-content
     %header.main-content__header
       .main-content__header__group-info
@@ -43,6 +50,10 @@
       .message
         = render 'message'
     %footer.main-content__footer
-      %form.form
-        %input.form__input
-        %input.form__submit{:type => "submit"}
+      .footer__content
+        %form.form
+          .form_input_container
+            %input.form__input{:placeholder => "type a message"}
+            .form__input__image
+              %i.fa.fa-image
+          %input.form__submit{:type => "submit", :value => "Send"}
