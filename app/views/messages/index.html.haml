@@ -1,5 +1,8 @@
 .contents
   .main-content
     %header.main-content__header
-      %ul.main-content__ul
+      .messages
+        - @messages.each do |message|
+          .message = render partial:'message', locals: {message: message}
+        - end
     %footer.main-content__footer
