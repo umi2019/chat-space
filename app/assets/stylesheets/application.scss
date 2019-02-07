@@ -1,26 +1,41 @@
 @import "reset";
 
-html {
+$header_height: 80px;
+$footer_height: 80px;
+
+html, body{
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-$header_height: 80px;
+.contents {
+  height: 100%;
+  width: 100%;
+}
+
+.main-content {
+  height: 100%;
+  width: 100%;
+
+}
+
 .main-content__header {
   background-color: #ccc;
   height: $header_height;
   width: 100%;
   margin: 0;
   padding: 0;
-  position: fixed;
+  display: flex;
+  /*position: fixed;*/
 }
 
 .main-content__header__group-info {
   height: $header_height;
   width: 50%;
-  float: left;
+  flex: 1;
+  /*float: left;*/
 
     ul {
       margin: 5px 0 0 30px;
@@ -44,7 +59,7 @@ $header_height: 80px;
   height: 100%;
   width: 100px;
   line-height: 80px;
-  float: right;
+  /*float: right;*/
 }
 .edit {
   height: 40px;
@@ -59,14 +74,17 @@ $header_height: 80px;
 }
 
 .messages {
-  height: calc(100% - $header_height);
+  box-sizing: border-box;
+  height: calc(100vh - #{$header_height} - #{$footer_height});
   width: 100%;
-  padding-top: 20px + $header_height;
+  overflow: scroll;
+  display: block;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .message {
-  margin: 10px 0;
+  margin: 14px 0;
   padding: 0 40px;
 }
 
@@ -74,16 +92,59 @@ $header_height: 80px;
   background-color: white;
   height: 24px;
   margin: 0;
-  padding: 0;
+
 
     p {
+      padding-right: 5px;
       float: left;
     }
 }
 
+.message__top__name {
+  font-weight: bold;
+}
+
+.message__top__date {
+  color: #aaa;
+  font-size: 12px;
+  line-height: 24px;
+}
+
 .message__text {
+  font-size: 14px;
   min-height: 20px;
-  margin-top: 10px;
+  margin-top: 6px;
   padding: 0;
   text-align: left;
+}
+
+.main-content__footer {
+  background-color: #444;
+  box-sizing: border-box;
+  height: $footer_height;
+  width: 100%;
+  padding: 20px 30px;
+  /*display: block;*/
+  position: fixed;
+  bottom: 0;
+}
+
+.form {
+  height: 40px;
+  display: flex;
+}
+
+.form__input {
+  margin-right: 10px;
+  flex: 1;
+}
+
+.form__submit {
+  background-color: #a1aacc;
+  color: white;
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  border: 1px solid #a1aacc;
+
 }
