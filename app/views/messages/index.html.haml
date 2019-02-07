@@ -1,12 +1,19 @@
 .contents
   .main-content
     %header.main-content__header
-      .messages
-        -# - @messages.each do |message|
-        .message
-          = render 'message'
-        .message
-          = render partial: 'message'
-        .message
-          = render partial: 'message'#, locals: {message: message}
+      .main-content__header__group-info
+        %h2.main-content__header__group-info__group-name グループ名
+        %ul.main-content__header__group-info__member-list
+          %li.main-content__header__group-info__members Members:
+          %li.main-content__header__group-info__member-name テスト太郎
+          %li.main-content__header__group-info__member-name テスト二郎
+      %button.edit Edit
+    .messages
+      -# - @messages.each do |message|
+      .message
+        = render 'message'
+      .message
+        = render partial: 'message'
+      .message
+        = render partial: 'message'#, locals: {message: message}
     %footer.main-content__footer
