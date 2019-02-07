@@ -7,9 +7,10 @@ html {
   padding: 0;
 }
 
+$header_height: 80px;
 .main-content__header {
   background-color: #ccc;
-  height: 80px;
+  height: $header_height;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -17,7 +18,50 @@ html {
 }
 
 .main-content__header__group-info {
+  height: $header_height;
+  width: 50%;
   float: left;
+
+    ul {
+      margin: 5px 0 0 30px;
+      li {
+        margin: 0 5px;
+        font-size: 12px;
+        float: left;
+      }
+    }
+}
+
+.main-content__header__group-info__members {
+  font-weight: bold;
+}
+
+.main-content__header__group-info__group-name {
+  margin: 30px 0 0 30px;
+}
+
+.buttons {
+  height: 100%;
+  width: 100px;
+  line-height: 80px;
+  float: right;
+}
+.edit {
+  height: 40px;
+  width: 60px;
+  border: 2px solid black;
+  text-align: center;
+  line-height: 40px;
+
+  display: inline-block;
+  vertical-align: center;
+}
+
+.messages {
+  height: calc(100% - $header_height);
+  width: 100%;
+  padding-top: 20px + $header_height;
+  padding-bottom: 20px;
 }
 
 .message {
