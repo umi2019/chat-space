@@ -1,1 +1,24 @@
 @import "./reset";
+
+.message {
+  margin: 10px 0;
+  padding: 0 40px;
+}
+
+.message__top {
+  background-color: white;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+
+    p {
+      float: left;
+    }
+}
+
+.message__text {
+  min-height: 20px;
+  margin-top: 10px;
+  padding: 0;
+  text-align: left;
+}
