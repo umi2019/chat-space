@@ -2,7 +2,8 @@
   .main-content
     %header.main-content__header
       .messages
-        - @messages.each do |message|
+        -# - @messages.each do |message|
           .message = render partial:'message', locals: {message: message}
-        - end
+          .message = render partial:'message', locals: {message: message}
+          .message = render partial:'message', locals: {message: message}
     %footer.main-content__footer
