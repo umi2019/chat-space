@@ -3,7 +3,10 @@
     %header.main-content__header
       .messages
         -# - @messages.each do |message|
-          .message = render partial:'message', locals: {message: message}
-          .message = render partial:'message', locals: {message: message}
-          .message = render partial:'message', locals: {message: message}
+        .message
+          = render 'message'
+        .message
+          = render partial: 'message'
+        .message
+          = render partial: 'message'#, locals: {message: message}
     %footer.main-content__footer
