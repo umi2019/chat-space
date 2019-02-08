@@ -24,13 +24,12 @@
       .buttons
         .buttons__edit Edit
     .contents__main-content__messages.messages
-      -# - @messages.each do |message|
       .message
         = render 'message'
       .message
-        = render partial: 'message'
+        = render 'message'
       .message
-        = render partial: 'message'#, locals: {message: message}
+        = render 'message'
       .message
         = render 'message'
       .message
