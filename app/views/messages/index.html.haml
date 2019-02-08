@@ -22,7 +22,7 @@
           %li.main-content__header__group-info__member-name テスト太郎
           %li.main-content__header__group-info__member-name テスト二郎
       .buttons
-        .edit Edit
+        .buttons__edit Edit
     .messages
       -# - @messages.each do |message|
       .message
@@ -49,11 +49,10 @@
         = render 'message'
       .message
         = render 'message'
-    %footer.main-content__footer
-      .footer__content
-        %form.form
-          .form_input_container
-            %input.form__input{:placeholder => "type a message"}
-            .form__input__image
-              %i.fa.fa-image
-          %input.form__submit{:type => "submit", :value => "Send"}
+    .main-content__form-container
+      %form.main-content__form-container__message-form.message-form
+        .message-form__input-container
+          %input.message-form__input-container--input{:placeholder => "type a message"}
+          .message-form__input-container--input__image
+            %i.fa.fa-image
+        %input.message-form__submit{:type => "submit", :value => "Send"}
