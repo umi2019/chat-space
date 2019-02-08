@@ -1,0 +1,57 @@
+.contents
+  .contents__sidebar.sidebar
+    .sidebar__header
+      .sidebar__header__content
+        .sidebar__header__content__user-name テスト太郎
+        %ul.sidebar__header__content__buttons
+          %li.sidebar__header_content__buttons__edit-user.fa-button
+            %i.fa.fa-edit
+          %li.sidebar__header_content__buttons__new-group.fa-button
+            %i.fa.fa-cog
+    .sidebar__content
+      .groups
+        .group
+          %p.group__name グループ名
+          %p.group__last-message こんにちは
+  .contents__main-content
+    %header.contents__main-content__main-header.main-header
+      .main-header__group-info
+        %h2.main-header__group-info__group-name グループ名
+        %ul.main-header__group-info__member-list
+          %li.main-header__group-info__members Members:
+          %li.main-header__group-info__member-name テスト太郎
+          %li.main-header__group-info__member-name テスト二郎
+      .buttons
+        .buttons__edit Edit
+    .contents__main-content__messages.messages
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+      .message
+        = render 'message'
+    .contents__main-content__message-form.message-form
+      %form.message-form__form-box
+        .message-form__form-box__input-box.form-box
+          %input.message-form__form-box__input-box--input{placeholder: "type a message"}
+          .message-form__form-box__input-box--input__image
+            %i.fa.fa-image
+        %input.message-form__form-box__submit{type: "submit", value: "Send"}

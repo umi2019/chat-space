@@ -1,0 +1,43 @@
+.message-form {
+  &__form-box {
+    box-sizing: border-box;
+    height: 50px;
+    margin-top: 20px;
+    display: flex;
+
+    &__input-box {
+      box-sizing: border-box;
+      flex: 1;
+      margin-right: 15px;
+      line-height: 50px;
+      position: relative;
+
+      &--input {
+        box-sizing: border-box;
+        color: #434a54;
+        font-size: 16px;
+        height: 100%;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 40px;
+
+        &__image {
+          margin-right: 10px;
+          position: absolute;
+          line-height: 50px;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+
+    &__submit {
+      background-color: #38aef0;
+      color: white;
+      height: 50px;
+      width: 100px;
+      text-align: center;
+      border: 1px solid #38aef0;
+    }
+  }
+}
