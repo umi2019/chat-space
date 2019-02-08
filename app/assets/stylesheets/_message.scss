@@ -1,0 +1,30 @@
+.message {
+  margin-bottom: 40px;
+
+  &__top {
+  height: 24px;
+  width: 100%;
+
+    p {
+      float: left;
+    }
+
+    &__name {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    &__date {
+      color: #999;
+      font-size: 12px;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    min-height: 20px;
+    margin-top: 10px;
+    padding: 0;
+    text-align: left;
+  }
+}

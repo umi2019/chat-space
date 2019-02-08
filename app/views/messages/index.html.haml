@@ -1,5 +1,5 @@
 .contents
-  .sidebar
+  .contents__sidebar.sidebar
     .sidebar__header
       .sidebar__header__content
         .sidebar__header__content__user-name テスト太郎
@@ -13,17 +13,17 @@
         .group
           %p.group__name グループ名
           %p.group__last-message こんにちは
-  .main-content
-    %header.main-content__header
-      .main-content__header__group-info
-        %h2.main-content__header__group-info__group-name グループ名
-        %ul.main-content__header__group-info__member-list
-          %li.main-content__header__group-info__members Members:
-          %li.main-content__header__group-info__member-name テスト太郎
-          %li.main-content__header__group-info__member-name テスト二郎
+  .contents__main-content
+    %header.contents__main-content__main-header.main-header
+      .main-header__group-info
+        %h2.main-header__group-info__group-name グループ名
+        %ul.main-header__group-info__member-list
+          %li.main-header__group-info__members Members:
+          %li.main-header__group-info__member-name テスト太郎
+          %li.main-header__group-info__member-name テスト二郎
       .buttons
         .buttons__edit Edit
-    .messages
+    .contents__main-content__messages.messages
       -# - @messages.each do |message|
       .message
         = render 'message'
@@ -49,10 +49,10 @@
         = render 'message'
       .message
         = render 'message'
-    .main-content__form-container
-      %form.main-content__form-container__message-form.message-form
-        .message-form__input-container
-          %input.message-form__input-container--input{:placeholder => "type a message"}
-          .message-form__input-container--input__image
+    .contents__main-content__message-form.message-form
+      %form.message-form__form-box
+        .message-form__form-box__input-box.form-box
+          %input.message-form__form-box__input-box--input{placeholder: "type a message"}
+          .message-form__form-box__input-box--input__image
             %i.fa.fa-image
-        %input.message-form__submit{type: "submit", value: "Send"}
+        %input.message-form__form-box__submit{type: "submit", value: "Send"}
