@@ -1,0 +1,41 @@
+.main-header {
+  &__group-info {
+    margin-top: 35px;
+
+    ul {
+      margin-top: 15px;
+
+      li {
+        margin: 0 5px;
+        font-size: 12px;
+        color: #999;
+        float: left;
+      }
+    }
+
+    &__group-name {
+      font-weight: bold;
+    }
+
+    &__members {
+      font-weight: bold;
+    }
+  }
+}
+
+.buttons {
+  height: 100%;
+  line-height: 80px;
+
+  &__edit {
+    box-sizing: border-box;
+    height: 40px;
+    color: #38aef0;
+    border: 2px solid #38aef0;
+    text-align: center;
+    line-height: 36px;
+    margin-top: 30px;
+    padding: 0 20px;
+  }
+
+}
