@@ -15,9 +15,10 @@
             -# %i.fa.fa-cog
     .sidebar__content
       .groups
-        .group
-          %p.group__name グループ名
-          %p.group__last-message こんにちは
+        - @groups.each do |group|
+          .group
+            %p.group__name= group.name
+            %p.group__last-message こんにちは
   .contents__main-content
     %header.contents__main-content__main-header.main-header
       .main-header__group-info
