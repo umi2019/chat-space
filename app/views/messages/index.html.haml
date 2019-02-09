@@ -20,49 +20,27 @@
           .group
             = link_to group_messages_path(group) do
               %p.group__name= group.name
-              -# - if group.messages
-                -# %p.group__last-message= group.messages.last.body
-              -# - else
-              %p.group__last-message まだメッセージはありません
+              - if group.messages.empty?
+                %p.group__last-message まだメッセージはありません
+              - else
+                %p.group__last-message= group.messages.last.body
   .contents__main-content
     %header.contents__main-content__main-header.main-header
       .main-header__group-info
-        %h2.main-header__group-info__group-name グループ名
+        %h2.main-header__group-info__group-name= @group.name
         %ul.main-header__group-info__member-list
           %li.main-header__group-info__members Members:
-          %li.main-header__group-info__member-name テスト太郎
-          %li.main-header__group-info__member-name テスト二郎
+          - @group.users.each do |user|
+            %li.main-header__group-info__member-name= user.name
       .buttons
         .buttons__edit Edit
     .contents__main-content__messages.messages
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
+      -# - unless @messages.empty?
+      = render @messages
     .contents__main-content__message-form.message-form
-      %form.message-form__form-box
+      = form_for [@group, @message], html: {class: "message-form__form-box"} do |f|
         .message-form__form-box__input-box.form-box
-          %input.message-form__form-box__input-box--input{placeholder: "type a message"}
+          = f.text_field :body, placeholder: "type a message", class: "message-form__form-box__input-box--input"
           .message-form__form-box__input-box--input__image
             %i.fa.fa-image
-        %input.message-form__form-box__submit{type: "submit", value: "Send"}
+        = f.submit "Send", class: "message-form__form-box__submit"
