@@ -15,10 +15,15 @@
             -# %i.fa.fa-cog
     .sidebar__content
       .groups
-        - @groups.each do |group|
+      - if current_user.groups
+        - current_user.groups.each do |group|
           .group
-            %p.group__name= group.name
-            %p.group__last-message こんにちは
+            = link_to group_messages_path(group) do
+              %p.group__name= group.name
+              -# - if group.messages
+                -# %p.group__last-message= group.messages.last.body
+              -# - else
+              %p.group__last-message まだメッセージはありません
   .contents__main-content
     %header.contents__main-content__main-header.main-header
       .main-header__group-info
