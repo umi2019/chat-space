@@ -35,8 +35,8 @@
       .buttons
         .buttons__edit Edit
     .contents__main-content__messages.messages
-      -# - unless @messages.empty?
-      = render @messages
+      - if @messages
+        = render @messages
     .contents__main-content__message-form.message-form
       = form_for [@group, @message], html: {class: "message-form__form-box"} do |f|
         .message-form__form-box__input-box.form-box
