@@ -8,10 +8,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-<<<<<<< HEAD
-=======
     @messages = @group.messages.includes(:user)
->>>>>>> develop
     if @message.save
       redirect_to group_messages_path(@group)
     else
