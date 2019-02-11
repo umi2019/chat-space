@@ -10,6 +10,13 @@ $(function() {
     return html;
   }
 
+  $(window).on('load', function(event) {
+    event.preventDefault();
+    /* Act on the event */
+    $('.messages').scrollTop($('.messages')[0].scrollHeight);
+    console.log("load complete");
+  });
+
   $('#message-form').on('submit', function(event) {
     event.preventDefault();
 
