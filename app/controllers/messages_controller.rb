@@ -3,15 +3,20 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = @group.messages
+    @messages = @group.messages.includes(:user)
   end
 
   def create
     @message = Message.new(message_params)
+<<<<<<< HEAD
+=======
+    @messages = @group.messages.includes(:user)
+>>>>>>> develop
     if @message.save
       redirect_to group_messages_path(@group)
     else
       flash.now[:alert] = "メッセージを入力してください"
+      render :index
     end
   end
 
