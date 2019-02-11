@@ -38,7 +38,7 @@
       - if @messages
         = render @messages
     .contents__main-content__message-form.message-form
-      = form_for [@group, @message], html: {class: "message-form__form-box"} do |f|
+      = form_for [@group, @message], html: {class: "message-form__form-box", id: "message-form"} do |f|
         .message-form__form-box__input-box.form-box
           = f.text_field :body, placeholder: "type a message", class: "message-form__form-box__input-box--input", id: "message_box"
           .message-form__form-box__input-box--input__image
