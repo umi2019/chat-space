@@ -26,8 +26,8 @@ $(function() {
     .done(function(data) {
       var html = buildHTML(data);
       $('.messages').append(html);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('#message_box').val('');
-      debugger;
       console.log("success");
     })
     .fail(function() {
