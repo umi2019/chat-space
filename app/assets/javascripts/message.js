@@ -38,6 +38,7 @@ $(function() {
       console.log("success");
     })
     .fail(function() {
+      alert('メッセージを入力してください');
       console.log("error");
     })
     .always(function() {
