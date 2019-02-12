@@ -14,7 +14,6 @@ $(function() {
     event.preventDefault();
     /* Act on the event */
     $('.messages').scrollTop($('.messages')[0].scrollHeight);
-    console.log("load complete");
   });
 
   $('#message-form').on('submit', function(event) {
@@ -35,15 +34,12 @@ $(function() {
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('#message_box').val('');
-      console.log("success");
     })
     .fail(function() {
       alert('メッセージを入力してください');
-      console.log("error");
     })
     .always(function() {
       $('#send_message').prop('disabled', false);
-      console.log("complete");
     });
   });
 });
