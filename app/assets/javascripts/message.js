@@ -33,13 +33,13 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      $('#message_box').val('');
+      $('#message-form')[0].reset();
     })
     .fail(function() {
       alert('メッセージを入力してください');
     })
     .always(function() {
-      $('#send_message').prop('disabled', false);
+      // $('#send_message').prop('disabled', false);
     });
   });
 });
