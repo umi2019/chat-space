@@ -6,6 +6,7 @@ $(function() {
                     <p class="message__top__date">${message.date}</p>
                   </div>
                   <p class="message__text">${message.text}</p>
+                  <img src=${message.image} alt="" />
                 </div>`;
     return html;
   }
@@ -33,13 +34,13 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      $('#message-form')[0].reset();
     })
     .fail(function() {
       alert('メッセージを入力してください');
     })
     .always(function() {
-      // $('#send_message').prop('disabled', false);
+      $('#message-form')[0].reset();
+      $('#send_message').prop('disabled', false);
     });
   });
 });
