@@ -42,12 +42,8 @@
         .message-form__form-box__input-box.form-box
           = f.text_field :body, placeholder: "type a message", class: "message-form__form-box__input-box--input", id: "message_box"
           .message-form__form-box__input-box--input__image
-<<<<<<< HEAD
-            %i.fa.fa-image
-        = f.submit "Send", class: "message-form__form-box__submit", id: "send_message"
-=======
             = f.label :image do
               = fa_icon 'picture-o', class: "fa fa-image"
               = f.file_field :image, class: "hidden"
         = f.submit "Send", class: "message-form__form-box__submit"
->>>>>>> develop
+
