@@ -11,10 +11,8 @@ $(function() {
     return html;
   }
 
-  $(window).on('load', function(event) {
-    event.preventDefault();
-    /* Act on the event */
-    $('.messages').scrollTop($('.messages')[0].scrollHeight);
+  $('.messages').on('change', function(event) {
+    console.log('messages!');
   });
 
   $('#message-form').on('submit', function(event) {
@@ -44,3 +42,8 @@ $(function() {
     });
   });
 });
+
+// $(window).on('load', function() {
+//   $('.messages').scrollTop($('.messages')[0].scrollHeight);
+//   console.log('scroll!');
+// });
