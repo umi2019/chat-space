@@ -13,8 +13,6 @@ $(function() {
 
   $(document).on('turbolinks:load', function() {
     $('.messages').scrollTop($('.messages')[0].scrollHeight);
-    $('.messages').fadeIn(2000);
-    console.log('messages!');
   });
 
   $('#message-form').on('submit', function(event) {

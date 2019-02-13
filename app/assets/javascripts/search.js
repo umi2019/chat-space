@@ -18,7 +18,6 @@ $(function() {
 
   $('#user-search-field').on('keyup', function(event) {
     event.preventDefault();
-    console.log('input!');
     var input = $(this).val();
     $.ajax({
       url: '/users',
@@ -33,16 +32,12 @@ $(function() {
           appendUser(user);
         });
       }
-      console.log("success");
     })
     .fail(function() {
       alert("ユーザ検索に失敗しました");
-      console.log("error");
     })
     .always(function() {
-      console.log("complete");
     });
-
   });
 
   $(document).on('click', '.user-search-add', function() {
@@ -54,11 +49,5 @@ $(function() {
 
   $(document).on('click', '.js-remove-btn', function() {
     $(this).parent().remove();
-  });
-
-  $(document).on('click', 'chat-group-form__action-btn', function(event) {
-    event.preventDefault();
-    /* Act on the event */
-    console.log('save!');
   });
 });
