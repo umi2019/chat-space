@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var html = `<div class="message">
                   <div class="message__top">
@@ -11,9 +11,11 @@ $(function() {
     return html;
   }
 
-  $(document).on('turbolinks:load', function() {
+  //最初から下までスクロール
+  if($('.messages').length){
     $('.messages').scrollTop($('.messages')[0].scrollHeight);
-  });
+  }
+
 
   $('#message-form').on('submit', function(event) {
     event.preventDefault();
