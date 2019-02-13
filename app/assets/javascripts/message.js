@@ -6,12 +6,14 @@ $(function() {
                     <p class="message__top__date">${message.date}</p>
                   </div>
                   <p class="message__text">${message.text}</p>
-                  <img src=${message.image} alt="" />
+                  <img src="${message.image}" />
                 </div>`;
     return html;
   }
 
-  $('.messages').on('change', function(event) {
+  $(document).on('turbolinks:load', function() {
+    $('.messages').scrollTop($('.messages')[0].scrollHeight);
+    $('.messages').fadeIn(2000);
     console.log('messages!');
   });
 
@@ -42,8 +44,3 @@ $(function() {
     });
   });
 });
-
-// $(window).on('load', function() {
-//   $('.messages').scrollTop($('.messages')[0].scrollHeight);
-//   console.log('scroll!');
-// });
