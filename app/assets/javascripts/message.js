@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     var html = `<div class="message">
                   <div class="message__top">
@@ -6,16 +6,16 @@ $(function() {
                     <p class="message__top__date">${message.date}</p>
                   </div>
                   <p class="message__text">${message.text}</p>
-                  <img src=${message.image} alt="" />
+                  <img src="${message.image}" />
                 </div>`;
     return html;
   }
 
-  $(window).on('load', function(event) {
-    event.preventDefault();
-    /* Act on the event */
+  //最初から下までスクロール
+  if($('.messages').length){
     $('.messages').scrollTop($('.messages')[0].scrollHeight);
-  });
+  }
+
 
   $('#message-form').on('submit', function(event) {
     event.preventDefault();
