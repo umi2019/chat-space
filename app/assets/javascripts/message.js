@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
   function buildMessageHTML(message) {
     var html = `<div class="message" data-id=${message.id}>
                   <div class="message__top">
@@ -11,13 +11,15 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
+  //未取得のメッセージを取得する
   function updateMessages(){
     var message_id = 0;
 
+    //messageクラスのdata-id:にメッセージのidが格納されている
     if($('.message')[0]){
       message_id = $('.message:last').data('id') / 1;
     }
-    console.log($('.message:last').data('id'));
+
     $.ajax({
       url: location.href,
       type: 'GET',
@@ -32,20 +34,14 @@ $(document).on('turbolinks:load', function() {
         });
         $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       }
-      console.log("success");
     })
     .fail(function() {
-      console.log("error");
     })
     .always(function() {
-      console.log("complete");
     });
   }
-  //最初から下までスクロール
-  if($('.messages').length){
-    $('.messages').scrollTop($('.messages')[0].scrollHeight);
-  }
 
+  //5000ミリ秒ごとにメッセージを更新
   setInterval(function(){
     updateMessages();
   }, 5000);
@@ -65,9 +61,6 @@ $(document).on('turbolinks:load', function() {
     })
     .done(function(data) {
       updateMessages();
-      // setTimeout(function(){}, 1000);
-      // var html = buildMessageHTML(data);
-      // $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function() {
@@ -78,4 +71,13 @@ $(document).on('turbolinks:load', function() {
       $('#send_message').prop('disabled', false);
     });
   });
+
+  $(document).on('turbolinks:load', function(){
+  //最初から下までスクロール
+  if($('.messages').length){
+    $('.messages').scrollTop($('.messages')[0].scrollHeight);
+  }
+  });
 });
+
+
