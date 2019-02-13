@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  function buildHTML(message) {
+  function buildSendMessageHTML(message) {
     var html = `<div class="message">
                   <div class="message__top">
                     <p class="message__top__name">${message.user_name}</p>
@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
-      var html = buildHTML(data);
+      var html = buildSendMessageHTML(data);
       $('.messages').append(html);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
