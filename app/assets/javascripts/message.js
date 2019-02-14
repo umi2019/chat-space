@@ -1,6 +1,6 @@
-$(document).on('turbolinks:load', function() {
-  function buildSendMessageHTML(message) {
-    var html = `<div class="message">
+$(function() {
+  function buildMessageHTML(message) {
+    var html = `<div class="message" data-id=${message.id}>
                   <div class="message__top">
                     <p class="message__top__name">${message.user_name}</p>
                     <p class="message__top__date">${message.date}</p>
@@ -11,11 +11,40 @@ $(document).on('turbolinks:load', function() {
     return html;
   }
 
-  //最初から下までスクロール
-  if($('.messages').length){
-    $('.messages').scrollTop($('.messages')[0].scrollHeight);
+  //未取得のメッセージを取得する
+  function updateMessages(){
+    var message_id = 0;
+
+    //messageクラスのdata-id:にメッセージのidが格納されている
+    if($('.message')[0]){
+      message_id = $('.message:last').data('id') / 1;
+    }
+
+    $.ajax({
+      url: location.href,
+      type: 'GET',
+      dataType: 'json',
+      data: {message: {id: message_id}}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0) {
+        messages.forEach(function(message) {
+          var html = buildMessageHTML(message);
+          $('.messages').append(html);
+        });
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+      }
+    })
+    .fail(function() {
+    })
+    .always(function() {
+    });
   }
 
+  //5000ミリ秒ごとにメッセージを更新
+  setInterval(function(){
+    updateMessages();
+  }, 5000);
 
   $('#message-form').on('submit', function(event) {
     event.preventDefault();
@@ -31,8 +60,7 @@ $(document).on('turbolinks:load', function() {
       contentType: false
     })
     .done(function(data) {
-      var html = buildSendMessageHTML(data);
-      $('.messages').append(html);
+      updateMessages();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
     })
     .fail(function() {
@@ -43,4 +71,13 @@ $(document).on('turbolinks:load', function() {
       $('#send_message').prop('disabled', false);
     });
   });
+
+  $(document).on('turbolinks:load', function(){
+  //最初から下までスクロール
+  if($('.messages').length){
+    $('.messages').scrollTop($('.messages')[0].scrollHeight);
+  }
+  });
 });
+
+
