@@ -1,6 +1,4 @@
 class GroupsController < ApplicationController
-<<<<<<< HEAD
-=======
   before_action :set_group, only: [:edit, :update]
 
   def index
@@ -40,5 +38,4 @@ class GroupsController < ApplicationController
   def set_group
     @group = Group.find(params[:id])
   end
->>>>>>> master
 end

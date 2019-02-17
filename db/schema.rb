@@ -10,21 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20190208113309) do
 
-  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
 ActiveRecord::Schema.define(version: 20190212114343) do
-
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
->>>>>>> master
   end
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -36,8 +27,7 @@ ActiveRecord::Schema.define(version: 20190212114343) do
     t.index ["user_id"], name: "index_members_on_user_id", using: :btree
   end
 
-<<<<<<< HEAD
-=======
+
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
     t.string   "image",                    default: ""
@@ -49,7 +39,6 @@ ActiveRecord::Schema.define(version: 20190212114343) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
->>>>>>> master
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -66,9 +55,7 @@ ActiveRecord::Schema.define(version: 20190212114343) do
 
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
-<<<<<<< HEAD
-=======
+
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
->>>>>>> master
 end
