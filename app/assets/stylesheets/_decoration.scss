@@ -1,4 +1,4 @@
-a {
+.sidebar a {
   text-decoration: none;
 
   &:hover {
@@ -12,4 +12,8 @@ a {
   &:visited {
     color: white;
   }
+}
+
+.hidden {
+  display: none;
 }

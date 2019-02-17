@@ -6,55 +6,43 @@
           = current_user.name
         %ul.sidebar__header__content__buttons
           %li.sidebar__header_content__buttons__edit-user.fa-button
-            %i.fa.fa-edit
+            = link_to new_group_path do
+              = fa_icon 'pencil-square-o', class: 'icon'
           %li.sidebar__header_content__buttons__new-group.fa-button
             = link_to edit_user_path(current_user) do
               = fa_icon "cog", class: "icon"
-            -# %i.fa.fa-cog
     .sidebar__content
       .groups
-        .group
-          %p.group__name グループ名
-          %p.group__last-message こんにちは
+      - if current_user.groups
+        - current_user.groups.each do |group|
+          .group
+            = link_to group_messages_path(group) do
+              %p.group__name= group.name
+              - if group.messages.empty?
+                %p.group__last-message まだメッセージはありません
+              - else
+                %p.group__last-message= group.messages.last.body
   .contents__main-content
     %header.contents__main-content__main-header.main-header
       .main-header__group-info
-        %h2.main-header__group-info__group-name グループ名
+        %h2.main-header__group-info__group-name= @group.name
         %ul.main-header__group-info__member-list
           %li.main-header__group-info__members Members:
-          %li.main-header__group-info__member-name テスト太郎
-          %li.main-header__group-info__member-name テスト二郎
+          - @group.users.each do |user|
+            %li.main-header__group-info__member-name= user.name
       .buttons
-        .buttons__edit Edit
-    .contents__main-content__messages.messages
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
-      .message
-        = render 'message'
+        %a.buttons__edit{href: edit_group_path(@group)}
+          Edit
+    .contents__main-content__messages.messages#messages
+      - if @messages
+        = render @messages
     .contents__main-content__message-form.message-form
-      %form.message-form__form-box
+      = form_for [@group, @message], html: {class: "message-form__form-box", id: "message-form"} do |f|
         .message-form__form-box__input-box.form-box
-          %input.message-form__form-box__input-box--input{placeholder: "type a message"}
+          = f.text_field :body, placeholder: "type a message", class: "message-form__form-box__input-box--input", id: "message_box", autofocus: true
           .message-form__form-box__input-box--input__image
-            %i.fa.fa-image
-        %input.message-form__form-box__submit{type: "submit", value: "Send"}
+            = f.label :image do
+              = fa_icon 'picture-o', class: "fa fa-image"
+              = f.file_field :image, class: "hidden"
+        = f.submit "Send", class: "message-form__form-box__submit", id: "send_message"
+
