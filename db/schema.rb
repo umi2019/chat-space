@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190212114343) do
 
+ActiveRecord::Schema.define(version: 20190212114343) do
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       default: "", null: false
     t.datetime "created_at",              null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20190212114343) do
     t.index ["group_id"], name: "index_members_on_group_id", using: :btree
     t.index ["user_id"], name: "index_members_on_user_id", using: :btree
   end
+
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(version: 20190212114343) do
 
   add_foreign_key "members", "groups"
   add_foreign_key "members", "users"
+
   add_foreign_key "messages", "groups"
   add_foreign_key "messages", "users"
 end
