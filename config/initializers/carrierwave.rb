@@ -12,6 +12,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = 'umi-chat-space'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/umi-chat-space'
+  config.fog_directory  = 'umi-chat-space2'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/umi-chat-space2'
 end
